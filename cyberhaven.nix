@@ -2,7 +2,6 @@
   stdenv,
   requireFile,
   autoPatchelfHook,
-  makeWrapper,
   dpkg,
   openssl,
   libgcc,
@@ -26,7 +25,6 @@
 
     nativeBuildInputs = [
       autoPatchelfHook
-      makeWrapper
       dpkg
     ];
 
