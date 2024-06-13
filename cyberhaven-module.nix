@@ -30,7 +30,6 @@ in {
       serviceConfig = {
         Type = "simple";
         User = "root";
-        # ExecStartPre = ["${cyberhaven}/bin/cyberhaven '${cfg.backend}' '${cfg.installToken}'"];
         ExecStart = "${cyberhaven}/bin/cyberhaven '${cfg.backend}' '${cfg.installToken}'";
         KillMode = "process";
         KillSignal = "SIGKILL";
