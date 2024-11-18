@@ -1,12 +1,15 @@
-{cyberhaven}: {
+{ cyberhaven }:
+{
   config,
   lib,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkOption mkIf;
   cfg = config.services.cyberhaven;
-in {
+in
+{
   options.services.cyberhaven = {
     enable = mkEnableOption "cyberhaven";
     backend = mkOption {
@@ -23,9 +26,12 @@ in {
   config = mkIf cfg.enable {
     systemd.services.cyberhaven = {
       description = "Cyberhaven";
-      wants = ["network-online.target"];
-      after = ["network.target" "network-online.target"];
-      wantedBy = ["multi-user.target"];
+      wants = [ "network-online.target" ];
+      after = [
+        "network.target"
+        "network-online.target"
+      ];
+      wantedBy = [ "multi-user.target" ];
 
       serviceConfig = {
         Type = "simple";
